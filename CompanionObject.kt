@@ -7,7 +7,7 @@ class Myclass{
             println("can Draw")
         }
 
-        val greet: String = "Namaste"
+        val greet: String = "Namaste!!"
     }
 }
 fun main(){

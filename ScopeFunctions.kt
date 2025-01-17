@@ -1,6 +1,5 @@
 package com.example.kotlincodes
 
-import com.example.kotlincodes.Hardik.Hardik
 
 class Something{
     fun Dosomething(){
