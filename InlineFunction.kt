@@ -7,7 +7,7 @@ private inline fun someHOF(someLambda: (Int)->Unit){
 }
 fun main(){
     someHOF {
-        println(it)
+
     }
 
 }

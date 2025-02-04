@@ -25,11 +25,9 @@ fun learn(topic:String =  "Maths",hour:Int){
 }
 
 // varargs
-fun varArgsFun(vararg vararg: List<String>){
+fun varArgsFun(vararg vararg: String){
         for(i in vararg){
-            i.forEach {
-                println("$it")
-            }
+            println(i)
         }
 
 }
@@ -58,7 +56,8 @@ fun main(){
     val arr : Array<String>  = arrayOf("Hardik","Gupta","Digivalet")
 
 
-    varArgsFun(list)
+
+    varArgsFun("Hardik","Gupta","Digivalet")
 
 //    myMain("Hardik")
 //    myMain( 23763)

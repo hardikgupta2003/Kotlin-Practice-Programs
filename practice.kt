@@ -9,10 +9,11 @@ fun solve(str: String,input : String) : Boolean{
         if (str[i] == input[j]) {
             if(i!=str.length-1 && j != input.length-1 && str[i+1] != input[j+1]){
                 j=0
-                continue
             }
             j++
         }
+        println("i -> $i, j -> $j")
+
         i++
     }
 
@@ -22,7 +23,7 @@ fun solve(str: String,input : String) : Boolean{
 fun main(){
     val str = "abcdxycde"
 
-    println( solve(str,"cd"))
+    println( solve(str,"ci"))
 
 
 }
