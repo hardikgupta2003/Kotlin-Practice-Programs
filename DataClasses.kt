@@ -1,32 +1,35 @@
 package com.example.kotlincodes
 
-data class User(val name: String, val id: Int) {           // 1
+// Data class representing a user with a name and an ID
+data class User(val name: String, val id: Int) {
+    // Overriding equals to compare users based only on their ID
     override fun equals(other: Any?) =
-        other is User && other.id == this.id               // 2
+        other is User && other.id == this.id
 }
+
 fun main() {
     val user = User("Alex", 1)
-    println(user)                                          // 3
+    println(user) // Printing user object
 
-    val secondUser = User("Alex", 1)
-    val thirdUser = User("Max", 2)
+    val secondUser = User("Alex", 1) // Creating a user with same ID
+    val thirdUser = User("Max", 2) // Creating a user with a different ID
 
-    println("user == secondUser: ${user == secondUser}")   // 4
-    println("user == thirdUser: ${user == thirdUser}")
+    // Comparing users using overridden equals method
+    println("user == secondUser: \${user == secondUser}")
+    println("user == thirdUser: \${user == thirdUser}")
 
-    // hashCode() function
-    println(user.hashCode())                               // 5
+    // hashCode() function demonstration
+    println(user.hashCode())
     println(secondUser.hashCode())
     println(thirdUser.hashCode())
 
+    // copy() function demonstration
+    println(user.copy()) // Copying the user object
+    println(user === user.copy()) // Checking reference equality
+    println(user.copy("Max")) // Copying and changing the name
+    println(user.copy(id = 42)) // Copying and changing the ID
 
-
-    // copy() function
-    println(user.copy())                                   // 6
-    println(user === user.copy())                          // 7
-    println(user.copy("Max"))                              // 8
-    println(user.copy(id=42))                // 9
-
-    println("name = ${user.component1()}")                 // 10
-    println("id = ${user.component2()}")
+    // Using component functions to extract properties
+    println("name = \${user.component1()}")
+    println("id = \${user.component2()}")
 }

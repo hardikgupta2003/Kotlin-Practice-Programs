@@ -1,23 +1,26 @@
 package com.example.kotlincodes
 
-
+// Base class representing a generic fruit
 open class Fruit
 
+// Subclass representing an Apple, which is a type of Fruit
 class Apple : Fruit()
 
-class FruitConsumer<in T:Fruit>(val fruit :  @UnsafeVariance T){
-    fun Consume() :  @UnsafeVariance T {
+// Class using contravariance (in) to consume Fruit or its subtypes
+class FruitConsumer<in T: Fruit>(val fruit: @UnsafeVariance T) {
+    // Function to return the consumed fruit
+    fun Consume(): @UnsafeVariance T {
         return fruit
     }
 }
 
-fun main(){
+fun main() {
+    // Creating a FruitConsumer that accepts any Fruit, initialized with an Apple
+    val fruitConsumer: FruitConsumer<Fruit> = FruitConsumer(Apple())
 
-    val fruitConsumer : FruitConsumer<Fruit> = FruitConsumer(Apple())
-    val appleConsumer : FruitConsumer<Apple> =  fruitConsumer
+    // Assigning a FruitConsumer<Fruit> to a FruitConsumer<Apple> due to contravariance
+    val appleConsumer: FruitConsumer<Apple> = fruitConsumer
 
-
-
+    // Consuming and printing the fruit
     println(appleConsumer.Consume())
-
 }

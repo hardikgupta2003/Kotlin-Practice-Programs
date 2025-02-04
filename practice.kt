@@ -1,31 +1,25 @@
 package com.example.kotlincodes
 
-fun solve(str: String,input : String) : Boolean{
+// Function to check if 'input' is a subsequence of 'str'
+fun solve(str: String, input: String): Boolean {
+    var i = 0 // Pointer for 'str'
+    var j = 0 // Pointer for 'input'
 
-    var i = 0
-    var j = 0
-
-    while (i<str.length && j < input.length) {
+    while (i < str.length && j < input.length) {
         if (str[i] == input[j]) {
-            if(i!=str.length-1 && j != input.length-1 && str[i+1] != input[j+1]){
-                j=0
+            if (i != str.length - 1 && j != input.length - 1 && str[i + 1] != input[j + 1]) {
+                j = 0 // Reset 'j' if next characters don't match
             }
-            j++
+            j++ // Move pointer for 'input'
         }
-        println("i -> $i, j -> $j")
-
-        i++
+        println("i -> $i, j -> $j") // Debugging output
+        i++ // Move pointer for 'str'
     }
 
-    return j == input.length
-
+    return j == input.length // Return true if entire 'input' is found
 }
-fun main(){
+
+fun main() {
     val str = "abcdxycde"
-
-    println( solve(str,"ci"))
-
-
+    println(solve(str, "ci")) // Test case
 }
-
-

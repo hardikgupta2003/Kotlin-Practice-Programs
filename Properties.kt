@@ -1,44 +1,38 @@
 package com.example.kotlincodes
 
-class vehicle{
-
-
+// Class representing a vehicle
+class Vehicle {
     var name: String = "Lord Omni"
-    var brand : String = "Maruti"
-    var year : Int = 2000
-    fun CarAccess() : String{
-        val car1 = vehicle()
-        return "car name : ${car1.name} , brand : ${car1.brand} ,year : ${car1.year}"
+    var brand: String = "Maruti"
+    var year: Int = 2000
+
+    // Function to access vehicle details
+    fun carAccess(): String {
+        val car1 = Vehicle()
+        return "Car name: ${car1.name}, Brand: ${car1.brand}, Year: ${car1.year}"
     }
-
-
 }
 
-class Car{
-    val car1 = vehicle()
-    var carName = "car name : ${car1.name} , brand : ${car1.brand} ,year : ${car1.year}".also( ::println )
-
-}
- class calculation(var x:Int){
-    val area : Int
-        get() = (this.x * this.x).also { println("custom getter called") }
-
-}
-fun main(){
-
-
-
-    val car = Car()
-//    car.carName
-
-    val v = vehicle()
-    v.CarAccess()
-
-    val vari = vehicle()
-
-    val cal = calculation(5)
-    println(cal.area)
-
+// Class representing a car, initializing a Vehicle instance
+class Car {
+    val car1 = Vehicle()
+    var carName = "Car name: ${car1.name}, Brand: ${car1.brand}, Year: ${car1.year}".also(::println)
 }
 
+// Class to perform a calculation with a custom getter
+class Calculation(var x: Int) {
+    val area: Int
+        get() = (this.x * this.x).also { println("Custom getter called") }
+}
 
+fun main() {
+    val car = Car() // Creating an instance of Car
+
+    val v = Vehicle() // Creating an instance of Vehicle
+    v.carAccess() // Accessing vehicle details
+
+    val vari = Vehicle() // Creating another instance of Vehicle
+
+    val cal = Calculation(5) // Creating an instance of Calculation
+    println(cal.area) // Accessing custom getter
+}
